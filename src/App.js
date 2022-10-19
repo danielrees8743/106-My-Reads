@@ -1,8 +1,26 @@
-import "./App.css";
-import { useState } from "react";
+import './App.css';
+import { useState, useEffect } from 'react';
+import BookShelves from './components/BookShelves';
+import * as BooksAPI from './BooksAPI';
 
 function App() {
   const [showSearchPage, setShowSearchpage] = useState(false);
+  const [books, setBooks] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    BooksAPI.getAll().then((books) => {
+      setBooks(books);
+      console.log(books);
+    });
+  }, []);
+
+  const updateBookShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf).then(() => {
+      book.shelf = shelf;
+      setBooks((books) => books.filter((b) => b.id !== book.id).concat(book));
+    });
+  };
 
   return (
     <div className="app">
@@ -37,7 +55,7 @@ function App() {
                 <h2 className="bookshelf-title">Currently Reading</h2>
                 <div className="bookshelf-books">
                   <ol className="books-grid">
-                    <li>
+                    {/* <li>
                       <div className="book">
                         <div className="book-top">
                           <div
@@ -66,8 +84,8 @@ function App() {
                         <div className="book-title">To Kill a Mockingbird</div>
                         <div className="book-authors">Harper Lee</div>
                       </div>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                       <div className="book">
                         <div className="book-top">
                           <div
@@ -96,7 +114,7 @@ function App() {
                         <div className="book-title">Ender's Game</div>
                         <div className="book-authors">Orson Scott Card</div>
                       </div>
-                    </li>
+                    </li> */}
                   </ol>
                 </div>
               </div>
