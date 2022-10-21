@@ -1,5 +1,6 @@
 import Book from './Book';
 import './shelf.css';
+import { PropTypes } from 'prop-types';
 
 //* Adds the books to the shelves and adds them to the list of books in the correct shelf category
 const Shelf = ({ books, title, updateBookShelf }) => {
@@ -17,6 +18,11 @@ const Shelf = ({ books, title, updateBookShelf }) => {
       </div>
     </div>
   );
+};
+
+Shelf.propTypes = {
+  books: PropTypes.array.isRequired,
+  updateBookShelf: PropTypes.func.isRequired,
 };
 
 export default Shelf;
