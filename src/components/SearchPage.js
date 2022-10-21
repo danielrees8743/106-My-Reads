@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Shelf from './Shelf';
+import './searchPage.css';
 
 //* This is the search page component that is rendered when the search button is clicked on the main page
 //* It contains the search bar and the search results that are rendered in the Shelf component

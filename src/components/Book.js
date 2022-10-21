@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import './book.css';
+
 const Book = ({ book, updateBookShelf }) => {
   const [shelf, setShelf] = useState(book.shelf);
   const [image] = useState(

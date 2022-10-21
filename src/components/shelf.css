@@ -1,0 +1,23 @@
+.bookshelf {
+  padding: 0 10px 20px;
+}
+.bookshelf-title {
+  border-bottom: 1px solid #dedede;
+  font-size: 1.5em;
+}
+.bookshelf-books {
+  text-align: center;
+}
+.books-grid {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.books-grid li {
+  padding: 10px 15px;
+  text-align: left;
+}

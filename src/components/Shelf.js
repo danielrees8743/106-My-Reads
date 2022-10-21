@@ -1,4 +1,5 @@
 import Book from './Book';
+import './shelf.css';
 
 //* Adds the books to the shelves and adds them to the list of books in the correct shelf category
 const Shelf = ({ books, title, updateBookShelf }) => {

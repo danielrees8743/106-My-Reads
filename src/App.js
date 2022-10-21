@@ -22,7 +22,6 @@ function App() {
   //* Updates books on the shelf and on the server
   const updateBookShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(() => {
-      // book.shelf = shelf;
       const newBook = { ...book, shelf };
 
       setBooks((books) =>

@@ -1,4 +1,5 @@
 import Shelf from './Shelf';
+import './bookShelves.css';
 
 //* Filters the books by shelf and passes them to the Shelf component
 const BookShelves = ({ books, updateBookShelf }) => {
