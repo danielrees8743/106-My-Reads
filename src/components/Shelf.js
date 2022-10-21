@@ -1,5 +1,6 @@
 import Book from './Book';
-import { useState } from 'react';
+
+//* Adds the books to the shelves and adds them to the list of books in the correct shelf category
 const Shelf = ({ books, title, updateBookShelf }) => {
   return (
     <div className="bookshelf">

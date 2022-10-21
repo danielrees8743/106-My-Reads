@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react';
 const Book = ({ book, updateBookShelf }) => {
   const [shelf, setShelf] = useState(book.shelf);
-  const [image, setImage] = useState(
+  const [image] = useState(
     'http://books.google.com/books/content?id=1yx1tgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api'
   );
 
+  //* Puts the book on the correct shelf and updates the server with the new shelf category when the book is moved
+  //* using the updateBookshelf function
+
   const updateShelf = (e) => {
     setShelf(e);
-    console.log(shelf, book);
   };
 
   useEffect(() => {
     if (book.shelf !== shelf) {
       updateBookShelf(book, shelf);
     }
-  }, [book, shelf]);
+  }, [book, shelf, updateBookShelf]);
 
   return (
     <div className="book">

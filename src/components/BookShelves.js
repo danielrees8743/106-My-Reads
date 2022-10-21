@@ -1,5 +1,6 @@
 import Shelf from './Shelf';
 
+//* Filters the books by shelf and passes them to the Shelf component
 const BookShelves = ({ books, updateBookShelf }) => {
   const filterShelves = (shelf) => {
     const bookShelf = books.filter((book) => book.shelf === shelf);

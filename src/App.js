@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import './App.css';
 import { useState, useEffect } from 'react';
 import BookShelves from './components/BookShelves';
 import SearchPage from './components/SearchPage';
-
 import * as BooksAPI from './BooksAPI';
 
 function App() {
@@ -11,12 +12,14 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [query, setQuery] = useState('');
 
+  //* Get all books from the server on render on page
   useEffect(() => {
     BooksAPI.getAll().then((books) => {
       setBooks(books);
     });
   }, []);
 
+  //* Updates books on the shelf and on the server
   const updateBookShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(() => {
       // book.shelf = shelf;
@@ -28,11 +31,10 @@ function App() {
     });
   };
 
+  //* Search for books on the server
   useEffect(() => {
-    console.log(query);
     BooksAPI.search(query).then((results) => {
       if (results && !results.error) {
-        console.log(results);
         setSearchResults(
           results.map((book) => {
             const foundBook = books.find((b) => b.id === book.id);
@@ -46,7 +48,7 @@ function App() {
         setSearchResults([]);
       }
     });
-  }, [query]);
+  }, [books, query]);
 
   const searchBooks = (query) => {
     setQuery(query);
